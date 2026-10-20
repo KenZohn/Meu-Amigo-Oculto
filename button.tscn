@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://dk68n4r6i6ay3"]
+
+[ext_resource type="Script" uid="uid://mxiqqsqe0w6u" path="res://button.gd" id="2_n4tde"]
+[ext_resource type="Texture2D" uid="uid://wyhfkuuhturj" path="res://asset/Sprout Lands - UI Pack - Basic pack/Sprite sheets/buttons/Square Buttons 26x26.png" id="2_vxja4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4tde"]
+atlas = ExtResource("2_vxja4")
+region = Rect2(11, 59, 26, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4amfo"]
+atlas = ExtResource("2_vxja4")
+region = Rect2(59, 57, 26, 28)
+
+[node name="Button" type="Button" unique_id=763707274]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 96.0
+offset_bottom = 32.0
+script = ExtResource("2_n4tde")
+button_text = "BUTTON"
+normal_texture = SubResource("AtlasTexture_n4tde")
+pressed_texture = SubResource("AtlasTexture_4amfo")
+
+[node name="Background" type="NinePatchRect" parent="." unique_id=502442362]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_n4tde")
+region_rect = Rect2(0, 0, 26, 28)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Label" type="Label" parent="." unique_id=201443246]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 3
+text = "BUTTON"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1898889357]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 6
+
+[node name="Icon" type="TextureRect" parent="MarginContainer" unique_id=1712606533]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+expand_mode = 3
+stretch_mode = 5
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]

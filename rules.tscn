@@ -1,0 +1,158 @@
+[gd_scene format=3 uid="uid://cja0g738ptcnn"]
+
+[ext_resource type="Script" uid="uid://dyrf6wwaieyk5" path="res://rules.gd" id="1_mkyc2"]
+[ext_resource type="Texture2D" uid="uid://ddf515ueuikpa" path="res://asset/Sprout Lands - UI Pack - Basic pack/Sprite sheets/Sprite sheet for Basic Pack.png" id="2_5ny3t"]
+[ext_resource type="PackedScene" uid="uid://dk68n4r6i6ay3" path="res://button.tscn" id="3_2xrmt"]
+[ext_resource type="Texture2D" uid="uid://bt1njoc0eeqly" path="res://asset/Sprout Lands - UI Pack - Basic pack/Sprite sheets/Icons/All Icons.png" id="4_p5sfp"]
+[ext_resource type="Texture2D" uid="uid://d0efv5dllq8ln" path="res://asset/Sprout Lands - UI Pack - Basic pack/emojis-free/Emoji_Spritesheet_Free.png" id="5_cee7a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87pxh"]
+atlas = ExtResource("2_5ny3t")
+region = Rect2(107, 59, 26, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqrqt"]
+atlas = ExtResource("4_p5sfp")
+region = Rect2(192, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lssra"]
+atlas = ExtResource("2_5ny3t")
+region = Rect2(107, 11, 26, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0qyn"]
+atlas = ExtResource("5_cee7a")
+region = Rect2(98, 132, 28, 28)
+
+[node name="Rules" type="Control" unique_id=846800516]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mkyc2")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1014317440]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.75686276, 0.78431374, 0.7254902, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=108441868]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="NinePatchRect" parent="CenterContainer" unique_id=1143130216]
+custom_minimum_size = Vector2(296, 296)
+layout_mode = 2
+texture = ExtResource("2_5ny3t")
+region_rect = Rect2(201, 57, 30, 30)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="ColorRect" type="ColorRect" parent="CenterContainer/Panel" unique_id=1062124297]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 289.0
+offset_bottom = 289.0
+color = Color(0.9098039, 0.8117647, 0.6509804, 1)
+
+[node name="Title" type="Label" parent="CenterContainer/Panel" unique_id=768658774]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -72.0
+offset_top = 16.0
+offset_right = 72.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 20
+text = "REGRAS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ParticipantsArea" type="NinePatchRect" parent="CenterContainer/Panel" unique_id=1542448192]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 48.0
+offset_right = 280.0
+offset_bottom = 240.0
+texture = SubResource("AtlasTexture_87pxh")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CenterContainer/Panel/ParticipantsArea" unique_id=1136082774]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Panel/ParticipantsArea/ScrollContainer" unique_id=1288708552]
+layout_mode = 2
+
+[node name="NextButton" parent="CenterContainer/Panel" unique_id=10278336 instance=ExtResource("3_2xrmt")]
+layout_mode = 0
+offset_left = 248.0
+offset_top = 248.0
+offset_right = 280.0
+offset_bottom = 280.0
+button_icon = SubResource("AtlasTexture_cqrqt")
+
+[node name="ParticipantsNumber" type="NinePatchRect" parent="CenterContainer/Panel" unique_id=1894734367]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 248.0
+offset_right = 88.0
+offset_bottom = 280.0
+texture = SubResource("AtlasTexture_lssra")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Icon" type="TextureRect" parent="CenterContainer/Panel/ParticipantsNumber" unique_id=717906770]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 4.0
+offset_right = 30.0
+offset_bottom = 28.0
+texture = SubResource("AtlasTexture_q0qyn")
+expand_mode = 1
+
+[node name="Value" type="Label" parent="CenterContainer/Panel/ParticipantsNumber" unique_id=443783573]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 4.0
+offset_right = 68.0
+offset_bottom = 28.0
+theme_override_constants/outline_size = 3
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ReturnButton" parent="CenterContainer/Panel" unique_id=352746288 instance=ExtResource("3_2xrmt")]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 40.0
+offset_bottom = 40.0
+button_text = "<"

@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://38gtn5uhn1a7"]
+
+[ext_resource type="Script" uid="uid://bg8tr8xd6tu7b" path="res://participant.gd" id="1_xxrdh"]
+[ext_resource type="Texture2D" uid="uid://ddf515ueuikpa" path="res://asset/Sprout Lands - UI Pack - Basic pack/Sprite sheets/Sprite sheet for Basic Pack.png" id="2_wa4jo"]
+[ext_resource type="PackedScene" uid="uid://dk68n4r6i6ay3" path="res://button.tscn" id="3_f4ggs"]
+[ext_resource type="Texture2D" uid="uid://bt1njoc0eeqly" path="res://asset/Sprout Lands - UI Pack - Basic pack/Sprite sheets/Icons/All Icons.png" id="4_8par1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fjqf"]
+atlas = ExtResource("4_8par1")
+region = Rect2(240, 32, 16, 16)
+
+[node name="ParticipantRestriction" type="Control" unique_id=1324688262]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 232.0
+offset_bottom = 40.0
+
+[node name="Participant" type="Control" parent="." unique_id=207675311]
+custom_minimum_size = Vector2(232, 36)
+anchors_preset = 0
+offset_right = 232.0
+offset_bottom = 36.0
+script = ExtResource("1_xxrdh")
+
+[node name="Background" type="NinePatchRect" parent="Participant" unique_id=1699747801]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_wa4jo")
+region_rect = Rect2(107, 107, 26, 26)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Number" type="Label" parent="Participant" unique_id=299404982]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 40.0
+offset_bottom = 36.0
+theme_override_constants/outline_size = 3
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="LineEdit" parent="Participant" unique_id=1694665806]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 6.0
+offset_right = 194.0
+offset_bottom = 30.0
+editable = false
+
+[node name="Button" parent="Participant" unique_id=763707274 instance=ExtResource("3_f4ggs")]
+layout_mode = 0
+offset_left = 202.0
+offset_top = 8.0
+offset_right = 222.0
+offset_bottom = 28.0
+button_icon = SubResource("AtlasTexture_8fjqf")
+
+[connection signal="pressed" from="Participant/Button" to="Participant" method="_on_button_pressed"]
